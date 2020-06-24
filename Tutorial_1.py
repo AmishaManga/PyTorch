@@ -1,5 +1,6 @@
 from __future__ import print_function
 import torch
+import numpy as np
 
 # Construct a 5x3 matrix, uninitialized:
 
@@ -60,5 +61,31 @@ z = x.view(-1, 8)  # the size -1 is inferred from other dimensions
 # print(z) # reshaped into 2x8
 #print(x.size(), y.size(), z.size())
 
+# if you have a one element tensor use .item() to get the value as a python number
+x = torch.randn(1)
+#print(x)
+#print(x.item())
+
+# Converting a Torch Tensor to a NumPy Array
+
+a = torch.ones(5)
+#print(a) # tensor 
+
+b = a.numpy()
+#print(b) # numpy array
+
+# Add one: 
+
+a.add_(1)
+#print(a)
+#print(b)
+
+# Converting NumPy Array to Torch Tensor
+
+a = np.ones(5)
+b = torch.from_numpy(a)
+np.add(a, 1, out=a)
+#print(a)
+#print(b)
 
 
